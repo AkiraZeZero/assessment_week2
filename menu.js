@@ -7,7 +7,6 @@
     and filtering those arrays. 
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Create an object called `pizza` that has 6
@@ -33,13 +32,13 @@
 //CODE HERE
 
 const pizza = {
-    name: "Cheese Pizza", 
-    price: 12.00, 
-    category: "entree", 
-    popularity: 8, 
-    rating: 8, 
-    tags: "gluten-free",
-}
+  name: "Cheese Pizza",
+  price: 12.0,
+  category: "entree",
+  popularity: 8,
+  rating: 8,
+  tags: "gluten-free",
+};
 console.log(pizza);
 
 //////////////////PROBLEM 2////////////////////
@@ -74,7 +73,7 @@ console.log(pizza["price"]);
 
 //CODE HERE
 
-const {price} = pizza
+const { price } = pizza;
 console.log(pizza);
 
 /*
@@ -86,7 +85,7 @@ console.log(pizza);
 
 //CODE HERE
 
-const {popularity, tags} = pizza
+const { popularity, tags } = pizza;
 console.log(pizza);
 
 //////////////////PROBLEM 3////////////////////
@@ -104,12 +103,47 @@ console.log(pizza);
 //CODE HERE
 
 const foodArr = [
-    {name: "Pepperoni Pizza", price: 15.00, category: "entree", popularity: 10, rating: 10, tags: "kid favorite"},
-    {name: "Hawaiian Pizza", price: 14.00, category: "entree", popularity: 8, rating: 10, tags: "kid favorite"},
-    {name: "Veggie Pizza", price: 16.00, category: "entree", popularity: 6, rating: 8, tags: "gluten-free"},
-    {name: "BBQ Pizza", price: 22.00, category: "entree", popularity: 9, rating: 9, tags: "gluten-free"},
-    {name: "Meat Lovers Pizza", price: 20.00, category: "entree", popularity: 9, rating: 10, tags: "gluten-free"},
-]
+  {
+    name: "Pepperoni Pizza",
+    price: 15.0,
+    category: "entree",
+    popularity: 10,
+    rating: 10,
+    tags: "kid favorite",
+  },
+  {
+    name: "Hawaiian Pizza",
+    price: 14.0,
+    category: "entree",
+    popularity: 8,
+    rating: 10,
+    tags: "kid favorite",
+  },
+  {
+    name: "Veggie Pizza",
+    price: 16.0,
+    category: "entree",
+    popularity: 6,
+    rating: 8,
+    tags: "gluten-free",
+  },
+  {
+    name: "BBQ Pizza",
+    price: 22.0,
+    category: "entree",
+    popularity: 9,
+    rating: 9,
+    tags: "gluten-free",
+  },
+  {
+    name: "Meat Lovers Pizza",
+    price: 20.0,
+    category: "entree",
+    popularity: 9,
+    rating: 10,
+    tags: "gluten-free",
+  },
+];
 console.log(foodArr);
 
 //////////////////PROBLEM 4////////////////////
@@ -126,13 +160,12 @@ console.log(foodArr);
 
 //CODE HERE
 
-const filteredFood =  foodArr.filter((obj)=>{
-    if (obj.tags === `kid favorite`){
-        return obj
-    }
-})
+const filteredFood = foodArr.filter((obj) => {
+  if (obj.tags === `kid favorite`) {
+    return obj;
+  }
+});
 console.log(filteredFood);
-
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -174,21 +207,39 @@ console.log(filteredFood);
 */
 
 //CODE HERE
-function filterByProperty(property, number, type) {
-foodArr.filter((obj) => {
-if(type === 'above') {
-    if (obj.price || obj.rating || obj.popularity > number){
-        return obj
-    }
-} 
-})
-}
+// function filterByProperty(property, number, type) {
+// foodArr.filter((obj) => {
+// if(type === 'above') {
+//     if (obj.price || obj.rating || obj.popularity > number){
+//         return obj
+//     }
+// }
+// })
+// }
+
+function filter_by_property (property, number, type) {
+  if (type === "above") {
+     return foodArr.filter((food_obj) => {
+        if(food_obj[property] > number){
+            return food_obj
+        }
+    });
+  } else {
+    return foodArr.filter((food_obj) => {
+        console.log(food_obj[property])
+        if(food_obj[property] < number) {
+            return food_obj
+        }});
+  }
+};
 
 /*
-    Invoke the `filterByProperty` function passing
-    in a value for each paramter.
+Invoke the `filterByProperty` function passing
+in a value for each paramter.
 
-    You'll have to console.log to see the filtered array
+You'll have to console.log to see the filtered array
 */
 
 //CODE HERE
+
+console.log("filter by property", filter_by_property("price", 15, "above"));

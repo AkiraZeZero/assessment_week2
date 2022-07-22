@@ -26,6 +26,8 @@ const cart = [
 
 //CODE HERE
 
+
+
 const summedPrice = cart.reduce(
     (num1 , numb2) => {return num1 + numb2.price}, 0);
 
